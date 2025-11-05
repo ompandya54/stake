@@ -1,5 +1,6 @@
 body {
-  background-color: #0b1522;
+  background: radial-gradient(circle at 20% 10%, rgba(40,40,48,0.35), transparent 10%),
+              linear-gradient(180deg,#000 0%, #050507 100%);
   color: #fff;
   font-family: Arial, sans-serif;
   display: flex;
@@ -7,14 +8,25 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-size: 14px;
 }
 
+/* unified card style used on both pages */
 .container {
-  background-color: #182235;
+  /* match offer-container look: translucent black card with subtle border/shadow */
+  width: 420px;
+  max-width: calc(100% - 32px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.8), 0 0 18px rgba(255,200,50,0.02) inset;
   padding: 30px;
-  border-radius: 10px;
-  width: 335px;
+  border-radius: 12px;
   text-align: center;
+}
+
+/* smaller variant for very compact screens */
+@media (max-width: 420px) {
+  .container { padding: 22px; width: calc(100% - 28px); }
 }
 
 h1 {
@@ -258,3 +270,4 @@ select, input {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
