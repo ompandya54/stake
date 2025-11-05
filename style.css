@@ -271,3 +271,67 @@ select, input {
   100% { background-position: -200% 0; }
 }
 
+/* Payment received / success page styles */
+.success-container { padding: 28px; }
+.success-panel { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+/* animated checkmark */
+.checkmark { width: 92px; height: 92px; margin-bottom: 6px; }
+.checkmark-circle {
+  stroke: rgba(255,215,79,0.12);
+  stroke-width: 2.6;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: circle-draw .6s ease forwards;
+}
+.checkmark-check {
+  stroke: #ffd54f;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: check-draw .5s .45s ease forwards;
+}
+
+/* keyframes */
+@keyframes circle-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* amount & date */
+.amount { font-size: 18px; font-weight: 700; color: #fff; margin: 6px 0; }
+.datetime { font-size: 13px; color: #d0d6df; margin: 0; }
+
+/* confetti flecks */
+.confetti { position: relative; width: 160px; height: 40px; overflow: visible; pointer-events: none; }
+.dot {
+  position: absolute;
+  bottom: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+}
+.dot.d1 { left: 12%; background: #ffd54f; animation: conf 1.2s .1s ease forwards; }
+.dot.d2 { left: 28%; background: #ff7a7a; animation: conf 1.1s .18s ease forwards; }
+.dot.d3 { left: 44%; background: #80d8ff; animation: conf 1.4s .06s ease forwards; }
+.dot.d4 { left: 60%; background: #b39ddb; animation: conf 1.25s .12s ease forwards; }
+.dot.d5 { left: 76%; background: #a5d6a7; animation: conf 1.3s .09s ease forwards; }
+.dot.d6 { left: 88%; background: #ffd54f; animation: conf 1.18s .15s ease forwards; }
+
+@keyframes conf {
+  0% { transform: translateY(0) scale(.4); opacity: 0; }
+  20% { opacity: 1; transform: translateY(-28px) scale(1.05); }
+  60% { transform: translateY(-60px) rotate(12deg) scale(.9); }
+  100% { transform: translateY(-90px) rotate(28deg) scale(.8); opacity: 0; }
+}
+
+/* small responsive tweaks */
+@media (max-width:420px) {
+  .checkmark { width: 76px; height: 76px; }
+  .amount { font-size: 16px; }
+}
+
