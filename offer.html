@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10x Offer — StakeCryptoSack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="offer-page">
+  <div class="container offer-container">
+<!--     <img src="stake-logo.png" alt="StakeForSack Logo" class="site-logo"> -->
+    <!-- site name as text (H1 style) instead of an image logo -->
+    <h1 class="site-text-logo">StackForSack</h1>
+
+    <div class="title-row">
+      <h1><span class="multiplier">0</span>x Your Stake Money</h1>
+    </div>
+
+    <p class="offer-sub">Multiply your stake returns — tap Go to start.</p>
+
+    <a class="go-btn shiny" href="index.html" aria-label="Go to staking page">Go &gt;</a>
+  </div>
+
+  <script>
+    // animate multiplier from 0 to 10 quickly, then pulse
+    (function () {
+      const el = document.querySelector('.multiplier');
+      const duration = 900; // ms
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const value = Math.floor(t * 10);
+        el.textContent = value;
+        if (t < 1) requestAnimationFrame(step);
+        else {
+          el.textContent = '10';
+          // add a short pulse
+          el.classList.add('pulse');
+          setTimeout(() => el.classList.remove('pulse'), 800);
+        }
+      }
+      requestAnimationFrame(step);
+    })();
+  </script>
+</body>
+</html>
