@@ -65,7 +65,9 @@ copyBtn.addEventListener("click", () => {
 });
 
 // Submit form
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault && e.preventDefault();
+
   const stakeId = document.getElementById("stake-id").value;
   const wallet = document.getElementById("wallet-address").value;
   const amount = document.getElementById("amount").value;
@@ -81,7 +83,9 @@ submitBtn.addEventListener("click", () => {
     return;
   }
 
-  alert("Submission successful!");
+  // Redirect to the "payment received" page and pass the amount
+  const params = new URLSearchParams({ amount });
+  window.location.href = `received.html?${params.toString()}`;
 });
 
 // init: validate and set initial state
