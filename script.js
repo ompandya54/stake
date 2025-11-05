@@ -1,4 +1,3 @@
-
 // Define wallet addresses for each crypto
 const walletData = {
   usdt: {
@@ -22,6 +21,31 @@ const qrImg = document.getElementById("qr-code");
 const addressText = document.querySelector(".address");
 const copyBtn = document.getElementById("copy-btn");
 const submitBtn = document.getElementById("submit-btn");
+const amountInput = document.getElementById("amount");
+
+// create and insert inline error message for amount
+let amountError = document.querySelector('.amount-error');
+if (!amountError) {
+  amountError = document.createElement('div');
+  amountError.className = 'amount-error';
+  amountError.style.color = 'red';
+  amountError.style.fontSize = '0.9rem';
+  amountError.style.marginTop = '6px';
+  amountInput.insertAdjacentElement('afterend', amountError);
+}
+
+function validateAmount() {
+  const value = parseFloat(amountInput.value);
+  if (isNaN(value) || value <= 9.99) {
+    amountError.textContent = 'Amount must be greater than 10 USD';
+    submitBtn.disabled = true;
+    return false;
+  } else {
+    amountError.textContent = '';
+    submitBtn.disabled = false;
+    return true;
+  }
+}
 
 // Update address and QR when user changes selection
 cryptoSelect.addEventListener("change", () => {
@@ -30,6 +54,9 @@ cryptoSelect.addEventListener("change", () => {
   qrImg.src = data.qr;
   addressText.innerText = data.address;
 });
+
+// validate while typing
+amountInput.addEventListener('input', validateAmount);
 
 // Copy wallet address
 copyBtn.addEventListener("click", () => {
@@ -48,6 +75,14 @@ submitBtn.addEventListener("click", () => {
     return;
   }
 
+  // enforce amount > 10 on submit
+  if (!validateAmount()) {
+    amountInput.focus();
+    return;
+  }
+
   alert("Submission successful!");
 });
 
+// init: validate and set initial state
+validateAmount();
