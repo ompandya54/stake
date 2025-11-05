@@ -3,15 +3,15 @@
 const walletData = {
   usdt: {
     address: "0x5792b30269ec13d36e1419e0116fcafbb12ce44e",
-    qr: "images/qr-usdt.png"  // local image
+    qr: "qr-usdt.png"  // local image
   },
   btc: {
     address: "1BDJh5UiFXHPztAbdV6Tgs496jCHvJHNwe",
-    qr: "images/qr-btc.png"   // local image
+    qr: "qr-btc.png"   // local image
   },
   eth: {
     address: "0x5792b30269ec13d36e1419e0116fcafbb12ce44e",
-    qr: "images/qr-eth.png"   // local image
+    qr: "qr-eth.png"   // local image
   }
 };
 
@@ -50,3 +50,4 @@ submitBtn.addEventListener("click", () => {
 
   alert("Submission successful!");
 });
+
