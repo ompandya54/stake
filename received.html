@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payment Received — StakeCryptoSack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="offer-page">
+  <div class="container success-container" role="main" aria-live="polite">
+    <div class="success-panel">
+      <svg class="checkmark" viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark-check" fill="none" d="M16 27l7 7 13-14"/>
+      </svg>
+
+      <h2>Payment Received</h2>
+
+      <p class="amount" id="amountText">Amount: —</p>
+      <p class="datetime" id="dateText">Date & Time: —</p>
+
+      <div class="confetti" aria-hidden="true">
+        <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="dot d4"></span><span class="dot d5"></span><span class="dot d6"></span>
+      </div>
+
+      <p style="margin-top:18px;">
+        <a class="go-btn" href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // read amount from query string, show formatted amount and current datetime
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const rawAmount = params.get('amount') || '';
+      const amountEl = document.getElementById('amountText');
+      const dateEl = document.getElementById('dateText');
+
+      // format amount (keep user input if not numeric)
+      let displayAmount = rawAmount;
+      const num = parseFloat(rawAmount.replace(/,/g, ''));
+      if (!isNaN(num)) {
+        displayAmount = num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      amountEl.textContent = 'Amount received: ' + (displayAmount ? (displayAmount + ' USD') : '—');
+
+      // show local date/time
+      const now = new Date();
+      dateEl.textContent = 'Date & Time: ' + now.toLocaleString();
+
+      // small accessibility focus
+      amountEl.setAttribute('tabindex', '-1');
+      amountEl.focus();
+    })();
+  </script>
+</body>
+</html>
