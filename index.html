@@ -5,7 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StakeCryptoSack</title>
   <link rel="stylesheet" href="style.css">
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StakeCryptoSack</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <div class="container">
+    <div class="title-row">
+      <h1>StakeCryptoSack</h1>
+      <a id="support-btn" href="contact.html" title="Support" aria-label="Support">
+        <img src="help-desk.png" alt="Support" width="28" height="28">
+      </a>
+    </div>
+
+    <label for="crypto">Select Cryptocurrency</label>
+    <select id="crypto">
+      <option value="usdt">USDT (BEP-20)</option>
+      <option value="btc">BTC</option>
+      <option value="eth">ETH</option>
+    </select>
+
+    <div class="qr-section">
+      <img id="qr-code" src="qr-usdt.png" alt="QR Code" width="150" height="150">
+      <p class="address">0x5792b30269ec13d36e1419e0116fcafbb12ce44e</p>
+      <button id="copy-btn">Copy Address</button>
+    </div>
+
+    <input type="text" id="stake-id" placeholder="Stake ID">
+    <input type="text" id="wallet-address" placeholder="Your Wallet Address">
+    <input type="number" id="amount" placeholder="Amount Sent (USD)">
+    <input type="file" id="proof">
+    <p class="upload-text" style="text-align: left;margin-top:6px;font-size:0.95rem;color:#ffffff;">Upload screenshot</p>
+
+    <button id="submit-btn">Submit</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 <body>
   <div class="container">
     <h1>StakeCryptoSack</h1>
@@ -35,3 +77,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
