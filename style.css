@@ -1,0 +1,49 @@
+body {
+  background-color: #0b1522;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #182235;
+  padding: 30px;
+  border-radius: 10px;
+  width: 335px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+select, input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+#copy-btn, #submit-btn {
+  background-color: #00c853;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#copy-btn:hover, #submit-btn:hover {
+  background-color: #00a040;
+}
+
+.qr-section {
+  margin: 20px 0;
+}
