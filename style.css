@@ -1,3 +1,4 @@
+/* page background: deep black gradient for all pages */
 body {
   background: radial-gradient(circle at 20% 10%, rgba(40,40,48,0.35), transparent 10%),
               linear-gradient(180deg,#000 0%, #050507 100%);
@@ -240,35 +241,45 @@ select, input {
   letter-spacing: 0.6px;
   text-transform: none;
   position: relative;
-  /* gradient text + animated shine */
-  background: linear-gradient(90deg, #ffd54f 0%, #ffffff 45%, #ffd54f 100%);
+
+  /* soft gradient text with slow background movement */
+  background: linear-gradient(90deg, #ffd54f 0%, #ffeaa0 40%, #ffd54f 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 6px 18px rgba(255,213,79,0.08);
-  animation: shine-text 2.2s linear infinite;
+  text-shadow: 0 4px 12px rgba(255,213,79,0.06);
+  animation: subtle-shine 6s linear infinite;
 }
 
-/* subtle extra glint using pseudo-element */
+/* narrow, blurred glint — much smaller and less opaque than a full white bar */
 .site-text-logo::after {
   content: "";
   position: absolute;
-  left: -40%;
-  top: -10%;
-  width: 60%;
-  height: 120%;
+  top: -6%;
+  left: -20%;
+  width: 8%;               /* narrow streak */
+  height: 112%;
   transform: skewX(-18deg);
-  background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.0) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
   filter: blur(6px);
-  opacity: 0.6;
+  opacity: 0.35;           /* low opacity for subtlety */
   pointer-events: none;
-  animation: glint 2.2s linear infinite;
+  animation: narrow-glint 2.4s linear infinite;
 }
 
-@keyframes shine-text {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+/* slow moving gradient for the text itself */
+@keyframes subtle-shine {
+  0%   { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
+
+/* narrow glint motion — quick, subtle sweep */
+@keyframes narrow-glint {
+  0%   { left: -20%; opacity: 0; }
+  40%  { left: 36%; opacity: 0.42; }
+  60%  { left: 56%; opacity: 0.26; }
+  100% { left: 120%; opacity: 0; }
 }
 
 /* Payment received / success page styles */
@@ -334,4 +345,3 @@ select, input {
   .checkmark { width: 76px; height: 76px; }
   .amount { font-size: 16px; }
 }
-
