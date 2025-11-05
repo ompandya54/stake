@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>10x Offer — StakeCryptoSack</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StakeCryptoSack</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="offer-page">
-  <div class="container offer-container">
-<!--     <img src="stake-logo.png" alt="StakeForSack Logo" class="site-logo"> -->
-    <!-- site name as text (H1 style) instead of an image logo -->
-    <h1 class="site-text-logo">StackForSack</h1>
-
+<body>
+  <div class="container">
     <div class="title-row">
-      <h1><span class="multiplier">0</span>x Your Stake Money</h1>
+      <h1>StakeCryptoSack</h1>
+      <a id="support-btn" href="contact.html" title="Support" aria-label="Support">
+        <img src="help-desk.png" alt="Support" width="28" height="28">
+      </a>
     </div>
 
-    <p class="offer-sub">Multiply your stake returns — tap Go to start.</p>
+    <label for="crypto">Select Cryptocurrency</label>
+    <select id="crypto">
+      <option value="usdt">USDT (BEP-20)</option>
+      <option value="btc">BTC</option>
+      <option value="eth">ETH</option>
+    </select>
 
-    <a class="go-btn shiny" href="index.html" aria-label="Go to staking page">Go &gt;</a>
+    <div class="qr-section">
+      <img id="qr-code" src="qr-usdt.png" alt="QR Code" width="150" height="150">
+      <p class="address">0x5792b30269ec13d36e1419e0116fcafbb12ce44e</p>
+      <button id="copy-btn">Copy Address</button>
+    </div>
+
+    <input type="text" id="stake-id" placeholder="Stake ID">
+    <input type="text" id="wallet-address" placeholder="Your Wallet Address">
+    <input type="number" id="amount" placeholder="Amount Sent (USD)">
+    <input type="file" id="proof">
+    <p class="upload-text" style="text-align: left;margin-top:6px;font-size:0.95rem;color:#ffffff;">Upload screenshot</p>
+
+    <button id="submit-btn">Submit</button>
   </div>
 
-  <script>
-    // animate multiplier from 0 to 10 quickly, then pulse
-    (function () {
-      const el = document.querySelector('.multiplier');
-      const duration = 900; // ms
-      const start = performance.now();
-      function step(now) {
-        const t = Math.min(1, (now - start) / duration);
-        const value = Math.floor(t * 10);
-        el.textContent = value;
-        if (t < 1) requestAnimationFrame(step);
-        else {
-          el.textContent = '10';
-          // add a short pulse
-          el.classList.add('pulse');
-          setTimeout(() => el.classList.remove('pulse'), 800);
-        }
-      }
-      requestAnimationFrame(step);
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
