@@ -1,16 +1,28 @@
 // Define wallet addresses for each crypto
 const walletData = {
-  usdt: {
-    address: "0x5792b30269ec13d36e1419e0116fcafbb12ce44e",
-    qr: "qr-usdt.png"  // local image
+  "usdt-eth": {
+    address: "0x216696817bAF598Fa4cC4461AEB3CB34476E52Dc",
+    qr: "qr-usdt-eth.png"  // local image
   },
-  btc: {
-    address: "1BDJh5UiFXHPztAbdV6Tgs496jCHvJHNwe",
+  "usdt-bin": {
+    address: "0x216696817bAF598Fa4cC4461AEB3CB34476E52Dc",
+    qr: "qr-usdt-binance.png"   // local image
+  },
+  "usdt-tron": {
+    address: "TAx9KbxS2qh7mwafC3VX6gCGJP8tWVaK9R",
+    qr: "qr-usdt-tron.png"   // local image
+  },
+  "btc": {
+    address: "bc1qaq2ffv87mmn9jhud60s8zhnk5ycguk2umxjcxt",
     qr: "qr-btc.png"   // local image
   },
-  eth: {
-    address: "0x5792b30269ec13d36e1419e0116fcafbb12ce44e",
+  "eth": {
+    address: "0x216696817bAF598Fa4cC4461AEB3CB34476E52Dc",
     qr: "qr-eth.png"   // local image
+  },
+  "trx": {
+    address: "TAx9KbxS2qh7mwafC3VX6gCGJP8tWVaK9R",
+    qr: "qr-trx.png"   // local image
   }
 };
 
@@ -90,3 +102,4 @@ submitBtn.addEventListener("click", (e) => {
 
 // init: validate and set initial state
 validateAmount();
+
